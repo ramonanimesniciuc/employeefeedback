@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
+
+html, body { height: 100vh; }
+body { margin: 0;
+   font-family: 'Comfortaa', cursive!important;
+    background:linear-gradient(27deg, rgba(248,245,241,1) 0%, rgba(56,124,109,0.8743872549019608) 35%, rgba(233,137,106,0.7259278711484594) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+  }
