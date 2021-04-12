@@ -25,8 +25,7 @@ db.once('open', function () {
 
 require('./routes/auth.routes')(app);
 
-
-module.exports = {db}
+module.exports = {db};
 const PORT = 3040;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);

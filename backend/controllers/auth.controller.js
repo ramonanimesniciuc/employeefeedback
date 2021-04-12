@@ -2,35 +2,50 @@ const config = require("../config/auth.config");
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 var User = require('../models/user.model');
-
+const Company = require ('../models/company.model');
 
 exports.signup = (req, res) => {
     // Save User to Database
-    db.users.save({
-        username: req.body.username,
-        email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8),
-        phone: req.body.phone,
-        name:req.body.name,
-        birthdate: req.body.birthdate,
-        createdAt: req.body.createdAt,
-        departmentId: req.body.departmentId,
-        role: req.body.role,
-        managerId: req.body.managerId
-    },function(err,success){
-      res.status(200).send({
-        message:'User added!'
-      })
+    const user = new User({
+      username: req.body.username,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 8),
+      phone: req.body.phone,
+      name:req.body.name,
+      birthdate: req.body.birthdate,
+      createdAt: req.body.createdAt,
+      departmentId: req.body.departmentId,
+      role: req.body.role,
+      managerId: req.body.managerId
+  })
+    user.save().then((success)=>{
+      res.status(200).send('Success');
+    }).catch((err)=>{
+      res.status(500).send(err)
     })
-
 };
-
+exports.signupcompany = (req, res) => {
+  // Save Company to Database
+  console.log('SIGN UP COMPANY',req.body)
+  const company = new Company({
+    title: req.body.username,
+    email: req.body.email,
+    password: bcrypt.hashSync(req.body.password, 8),
+    subscriptionType:req.body.subscriptionType,
+    subscriptionActive : true
+});
+company.save().then((succes)=>{
+  res.status(201).send({success:true})
+}).catch((err)=>{
+  console.log('Something happened.Company not saved',err)
+})
+};
 
 exports.signin = (req, res) => {
   console.log('ON SIGN IN', req.body)
   User.findOne({username: req.body.username}, function(err, user) {
 
-    if (!user.validPassword(req.body.password)) {
+    if (!user || !user.validPassword(req.body.password)) {
       return res.status(401).send({
         accessToken: null,
         message: "Invalid Password!"

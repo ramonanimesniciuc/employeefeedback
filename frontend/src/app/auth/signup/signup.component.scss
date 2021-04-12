@@ -1,6 +1,5 @@
 form{
   margin: auto;
-  width: 100vh;
   padding: 15rem;
   text-align: center;
   color: #343f56;
@@ -30,7 +29,6 @@ form{
 }
 
 .card-deck{
-  display: flex;
   app-card{
     padding: 1rem;
   }

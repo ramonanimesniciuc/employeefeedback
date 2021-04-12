@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { SharedModule } from './common/shared.module';
-
+import {HttpClientModule} from'@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { SharedModule } from './common/shared.module';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],

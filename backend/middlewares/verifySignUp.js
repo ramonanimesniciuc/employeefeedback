@@ -1,9 +1,11 @@
-
+const Company = require('../models/company.model');
 checkDuplicateUsernameOrEmail = (req, res, next) => {
     // Username
-    db.users.find({username: req.body.username
-    }).then(user => {
-        if (user) {
+ 
+    Company.findOne({username: req.body.username
+    }).then(company => {
+        if (company && company.length > 0) {
+            console.log('company',company);
             res.status(400).send({
                 message: "Failed! Username is already in use!"
             });
@@ -11,10 +13,11 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
         }
 
         // Email
-        db.users.find({
+        Company.find({
                 email: req.body.email
-        }).then(user => {
-            if (user) {
+        }).then(company => {
+            if (company && company.length > 0) {
+                console.log('company',company);
                 res.status(400).send({
                     message: "Failed! Email is already in use!"
                 });

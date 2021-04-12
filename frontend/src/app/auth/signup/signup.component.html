@@ -1,25 +1,21 @@
-<form>
+<form [formGroup]="signUpForm">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Company Name</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input formControlName="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
   </div>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input formControlName="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Confirm password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
   </div>
   <div class="card-deck mb-3 text-center">
- <app-card></app-card>
- <app-card></app-card>
- <app-card></app-card>
+ <app-card (subscriptionSelected)="onSelectedSubscription($event)" [type]="1" [title]="'Bronz'" [subTitle]="'30'" [description]="'4 Managers;Up to 40 employees;3 general templates available'"></app-card>
+ <app-card (subscriptionSelected)="onSelectedSubscription($event)" [type]="2" [title]="'Silver'" [subTitle]="'80'" [description]="'7 Managers;Up to 100 employees;5 general templates available'"></app-card>
+ <app-card (subscriptionSelected)="onSelectedSubscription($event)" [type]="2" [title]="'Gold'" [subTitle]="'150'" [description]="'20 Managers;Up to 200 employees;10 general templates available'"></app-card>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="button" class="btn btn-primary" (click)="onSignUp()">Submit</button>
 </form>

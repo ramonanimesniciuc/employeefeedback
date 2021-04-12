@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const companySchema = new mongoose.Schema({
   title: String,
-  username: Number,
-  password: Number,
+  username: String,
+  password: String,
   email: String,
   subscriptionType: Number,
   subscriptionActive:Boolean,

@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { SharedModule } from '../common/shared.module';
+import { HttpService } from '../common/services/http.service';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,8 +12,10 @@ import { SharedModule } from '../common/shared.module';
   declarations: [LoginComponent, SignupComponent],
   imports: [
     CommonModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
   ],
-  exports:[LoginComponent,SignupComponent]
+  exports:[LoginComponent,SignupComponent],
+  providers:[HttpService]
 })
 export class AuthModule { }

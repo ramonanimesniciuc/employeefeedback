@@ -1,4 +1,4 @@
-<form>
+<form [formGroup]="loginForm">
   <img class="logo" src="assets/brand/logo.png">
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
@@ -11,5 +11,5 @@
   </div>
   <div class="mb-3"><a><b>Forgot password?</b></a></div>
   <div class="mb-3"><b><a>Create account</a></b></div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="button" class="btn btn-primary" (click)="onLogin()">Submit</button>
 </form>
