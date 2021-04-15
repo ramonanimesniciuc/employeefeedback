@@ -19,9 +19,9 @@ exports.signup = (req, res) => {
       managerId: req.body.managerId
   })
     user.save().then((success)=>{
-      res.status(200).send('Success');
+      res.status(200).send({success:true});
     }).catch((err)=>{
-      res.status(500).send(err)
+      res.status(500).send({success:false,message:err})
     })
 };
 exports.signupcompany = (req, res) => {
@@ -37,7 +37,7 @@ exports.signupcompany = (req, res) => {
 company.save().then((succes)=>{
   res.status(201).send({success:true})
 }).catch((err)=>{
-  console.log('Something happened.Company not saved',err)
+  res.status(500).send({success:false,message:err})
 })
 };
 

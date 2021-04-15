@@ -1,7 +1,6 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { HttpService } from 'src/app/common/services/http.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +9,7 @@ import { HttpService } from 'src/app/common/services/http.service';
 })
 export class SignupComponent implements OnInit {
  public signUpForm:FormGroup;
-  constructor(private http:HttpService,
+  constructor(private authService:AuthService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -22,13 +21,11 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  signup(){
-  return this.http.post('api/auth/signupcompany',this.signUpForm.value);
-  }
+
 
   onSignUp(){
-    return this.signup().subscribe((success)=>{
-      console.log(success)
+    return this.authService.signUpCompany(this.signUpForm.value).subscribe((success)=>{
+      console.log('sign up company result',this.signUpForm.value);
     });
   }
 

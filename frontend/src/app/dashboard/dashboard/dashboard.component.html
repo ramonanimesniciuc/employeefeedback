@@ -1,0 +1,24 @@
+<div class="grid-container">
+    <div class="menu">
+        <ul>
+            <li>
+                <img class="icon" src="assets/icons/add_user.png"><p class="menu-title"> Add manager</p>
+            </li>
+            <li>
+                <img class="icon" src="assets/icons/raports.png"> <p class="menu-title">Raports</p> 
+            </li>
+            <li>
+                <img class="icon" src="assets/icons/create-template.png"> <p class="menu-title">Add template</p> 
+            </li>
+            <li>
+                <img class="icon" src="assets/icons/add-employees.png"> <p class="menu-title">Add employees</p> 
+            </li>
+        </ul>
+    </div>
+    <div class="content">
+      <div class="menu-option" [ngSwitch]="currentScreen">
+          <app-home *ngSwitchCase="'HOME'"></app-home>
+          <app-add-manager *ngSwitchCase="'ADD_MANAGER'"></app-add-manager>
+      </div>
+    </div>
+</div>

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddManagerComponent } from './add-manager/add-manager.component';
 
 
 
 @NgModule({
-  declarations: [AddManagerComponent],
+  declarations: [],
   imports: [
     CommonModule
-  ]
+  ],
+  exports:[]
 })
 export class CompanyModule { }

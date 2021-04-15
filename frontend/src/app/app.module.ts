@@ -12,6 +12,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { SharedModule } from './common/shared.module';
 import {HttpClientModule} from'@angular/common/http';
+import { DashboardModule } from './dashboard/dashboard.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
+import { CompanyModule } from './company/company.module';
 
 @NgModule({
   declarations: [
@@ -20,16 +24,20 @@ import {HttpClientModule} from'@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule ,
     BrowserAnimationsModule,
     AuthModule,
     ManagerModule,
     UserModule,
     FormsModule,
+    CompanyModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    DashboardModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
