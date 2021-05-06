@@ -1,0 +1,24 @@
+<div class="question-template mt-2">
+  <h2><span *ngIf="editedQuestion">Currently editing..</span>{{templateType}} question type</h2>
+  <input type="text" placeholder="Question title.." class="form-control mb-2" [(ngModel)]="title">
+  <div class="mt-2"
+    *ngIf="answers.length > 0 && (templateType === TemplateType.MULTIPLE || templateType === TemplateType.SINGLE) ">
+    <hr />
+    <div *ngFor="let answer of answers;let i=index">
+      <div class="row">
+        <div class="col-10">
+          <input type="text" class="form-control my-2" [(ngModel)]="answers[i].text" placeholder="Answer text..">
+        </div>
+        <div class="col-2">
+          <button class="delete btn btn-danger my-2" (click)="deleteAnswer(i)">&#10008;</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="actions">
+    <button *ngIf=" (templateType === TemplateType.MULTIPLE || templateType === TemplateType.SINGLE)" class="btn btn-info" type="button" (click)="addAnswer()"> Add answer </button>
+    <button type="button" class="btn btn-success" [disabled]="answers.length===0 && (templateType === TemplateType.MULTIPLE || templateType === TemplateType.SINGLE )" (click)="sendQuestion()"><span *ngIf="!editedQuestion" >Done</span><span *ngIf="editedQuestion" >Finnish editing</span></button>
+    <button *ngIf="editedQuestion" class="btn btn-warning" (click)="stopEditing()">Stop editing</button>
+  </div>
+</div>

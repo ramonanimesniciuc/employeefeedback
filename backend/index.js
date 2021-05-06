@@ -24,6 +24,8 @@ db.once('open', function () {
 });
 
 require('./routes/auth.routes')(app);
+require('./routes/company.routes')(app);
+require('./routes/manager.routes')(app);
 
 module.exports = {db};
 const PORT = 3040;

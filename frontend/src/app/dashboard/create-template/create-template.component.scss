@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&display=swap');
+.title{
+  letter-spacing: 1rem;
+}
+.create_template{
+  padding:0.5rem;
+}
+.section{
+  padding:0.5rem;
+}
+.card{
+  background-color: rgb(141, 199, 160);
+  padding:1.5rem;
+  text-align: center;
+  color:white;
+  font-weight: bold;
+  padding:0.2rem;
+  box-shadow: 4px -1px 15px -2px rgba(6,41,5,0.65);
+}
+
+.card:hover{
+  background-color:rgb(108, 145, 120);
+  opacity: 0.7;
+  cursor:pointer;
+}
+.template-menu{
+  padding:0.2rem;
+  display: flex;
+  gap:1rem;
+
+}
+
+.image{
+  width:4.5vw;
+  margin:auto;
+  padding:1rem;
+}
+
+.questions-added-title{
+  letter-spacing: 3px;
+}
+.question-added-answer{
+  padding:0.5rem;
+}
+
+.added-question{
+  background: rgb(150, 206, 206);
+  border:rgba(56, 124, 109, 0.8743872549019608) 1px solid;
+  border-radius: 0.2rem;
+  padding:1rem;
+  font-family: 'Inconsolata', monospace;
+}
+
+.actions{
+  .btn{
+    margin:0.2rem;
+  }
+}
+.submit-button{
+  margin-top:3rem;
+}

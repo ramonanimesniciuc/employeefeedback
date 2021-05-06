@@ -1,0 +1,23 @@
+.title{
+    letter-spacing: 1rem;
+    font-size: 1.5rem;
+}
+
+table{
+    text-align: center;
+    padding:0.5rem;
+}
+
+thead{
+    background-color:rgb(123, 158, 123);
+    padding:0.5rem;
+}
+
+tbody tr:nth-child(odd){
+    background-color: #e0d597;
+    color: rgb(10, 2, 2);
+}
+
+.add_employees{
+    padding:1rem
+}

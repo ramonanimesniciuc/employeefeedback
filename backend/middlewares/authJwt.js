@@ -1,5 +1,7 @@
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config.js");
+var Manager = require('../models/manager.model');
+
 verifyToken = (req, res, next) => {
     let token = req.headers["x-access-token"];
     if (!token) {
@@ -19,14 +21,16 @@ verifyToken = (req, res, next) => {
     });
 };
 
-isUser = (req, res, next) => {
-    db.users.find({ id: req.userId }, function (err, user) {
-        if (user.role === 'user') {
-            return;
+isManager = (req, res, next) => {
+    Manager.findOne({email:req.body.email},(err,manager)=>{
+        if (manager) {
+            console.log('is manager')
+            next();
+        }else{
+            res.status(403).send({
+                message: "Require Manager Role!"
+            });
         }
-        res.status(403).send({
-            message: "Require User Role!"
-        });
     });
 };
 
@@ -56,7 +60,7 @@ isAdmin = (req, res, next) => {
 
 const authJwt = {
     verifyToken: verifyToken,
-    isUser: isUser,
+    isManager: isManager,
     isDesigner: isDesigner,
     isAdmin: this.isAdmin
 };

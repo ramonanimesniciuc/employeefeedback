@@ -8,9 +8,15 @@ import { CurrentScreenStates } from '../models/current-screen-states.enum';
 })
 export class DashboardComponent implements OnInit {
   public currentScreen:CurrentScreenStates = CurrentScreenStates.HOME;
+  public access:string;
   constructor() { }
 
   ngOnInit(): void {
+    this.access = localStorage.getItem('access');
+  }
+
+  public onMenuItemSelected(item:any){
+    this.currentScreen = item;
   }
 
 }

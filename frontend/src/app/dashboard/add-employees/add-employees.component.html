@@ -1,0 +1,35 @@
+<div class="add_employees">
+    <h2 class="title">Add employees</h2>
+    <div>
+        <label for="file">Choose File</label>
+        <input type="file"
+               id="file"
+               (change)="handleFileInput($event.target.files)">
+    </div>
+
+    <div class="employee-table" *ngIf="employees.length>0">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Enrollment Date</th>
+                <th scope="col">Role</th>
+                <th scope="col">Email</th>
+                <th scope="col">Birthdate</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let employee of employees">
+                <th scope="row">{{employee.name}}</th>
+                <td>{{employee.departmentId}}</td>
+                <td>{{employee.enrollment}}</td>
+                <td>{{employee.role}}</td>
+                <td>{{employee.email}}</td>
+                <td>{{employee.birthdate}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    <button *ngIf="employees.length>0" class="btn btn-success" (click)="addEmployees()">Add employees</button>
+</div>

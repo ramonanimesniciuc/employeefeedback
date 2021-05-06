@@ -1,7 +1,11 @@
 form{
-  margin: auto;
-  padding: 15rem;
+  // display: inline-block;
+  // margin: 5rem 5rem 5rem 5rem;
+  // padding: 1rem;
   text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
   color: #343f56;
   label.form-label{
     font-weight: 300;
@@ -33,3 +37,11 @@ form{
     padding: 1rem;
   }
 }
+
+.signup{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+

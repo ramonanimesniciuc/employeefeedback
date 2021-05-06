@@ -1,24 +1,30 @@
 <div class="grid-container">
     <div class="menu">
         <ul>
-            <li>
+            <li (click)="onMenuItemSelected('ADD_MANAGER')">
                 <img class="icon" src="assets/icons/add_user.png"><p class="menu-title"> Add manager</p>
             </li>
-            <li>
-                <img class="icon" src="assets/icons/raports.png"> <p class="menu-title">Raports</p> 
+            <li (click)="onMenuItemSelected('RAPORTS')">
+                <img class="icon" src="assets/icons/raports.png"> <p class="menu-title">Raports</p>
             </li>
-            <li>
-                <img class="icon" src="assets/icons/create-template.png"> <p class="menu-title">Add template</p> 
+            <li *ngIf="access!=='company'" (click)="onMenuItemSelected('ADD_TEMPLATE')">
+                <img class="icon" src="assets/icons/create-template.png"> <p class="menu-title">Add template</p>
             </li>
-            <li>
-                <img class="icon" src="assets/icons/add-employees.png"> <p class="menu-title">Add employees</p> 
+            <li  *ngIf="access!=='company'"  (click)="onMenuItemSelected('ADD_EMPLOYEES')">
+                <img class="icon" src="assets/icons/add-employees.png"> <p class="menu-title">Add employees</p>
             </li>
+            <li  *ngIf="access!=='company'"  (click)="onMenuItemSelected('ASSIGN_REVIEW')">
+              <img class="icon" src="assets/icons/assign-review.png"> <p class="menu-title">Assign review</p>
+          </li>
         </ul>
     </div>
     <div class="content">
       <div class="menu-option" [ngSwitch]="currentScreen">
           <app-home *ngSwitchCase="'HOME'"></app-home>
           <app-add-manager *ngSwitchCase="'ADD_MANAGER'"></app-add-manager>
+          <app-add-employees *ngSwitchCase="'ADD_EMPLOYEES'"></app-add-employees>
+          <app-create-template *ngSwitchCase="'ADD_TEMPLATE'"></app-create-template>
+          <app-assign-review *ngSwitchCase="'ASSIGN_REVIEW'"></app-assign-review>
       </div>
     </div>
 </div>

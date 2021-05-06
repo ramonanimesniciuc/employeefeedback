@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -10,6 +12,8 @@ import { AuthService } from '../auth.service';
 export class SignupComponent implements OnInit {
  public signUpForm:FormGroup;
   constructor(private authService:AuthService,
+    private router:Router,
+    private notificationsService:NotificationsService,
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -26,6 +30,8 @@ export class SignupComponent implements OnInit {
   onSignUp(){
     return this.authService.signUpCompany(this.signUpForm.value).subscribe((success)=>{
       console.log('sign up company result',this.signUpForm.value);
+      this.router.navigate(['/']);
+      this.notificationsService.info('Now you can login!','A confirmation email has been sent',{timeOut:5000})
     });
   }
 

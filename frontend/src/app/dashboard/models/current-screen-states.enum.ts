@@ -2,5 +2,6 @@ export enum CurrentScreenStates {
     ADD_EMPLOYEES = 'ADD_EMPLOYEES',
     ADD_MANAGER = 'ADD_MANAGER',
     CREATE_TEMPLATE = 'CREATE_TEMPLATE',
-    HOME = 'HOME'
+    HOME = 'HOME',
+    ASSIGN_REVIEW = 'ASSIGN_REVIEW'
 }

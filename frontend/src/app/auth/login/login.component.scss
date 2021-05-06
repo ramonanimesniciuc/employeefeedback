@@ -1,8 +1,8 @@
 form{
   margin: auto;
   width: 100vh;
-  padding: 15rem;
-  text-align: center;
+  padding: 3rem;
+  // text-align: center;
   color: #343f56;
   label.form-label{
     font-weight: 300;
@@ -29,3 +29,8 @@ form{
   border-color:#343f56;
 }
 
+.login{
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+}

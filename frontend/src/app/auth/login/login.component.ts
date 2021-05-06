@@ -5,6 +5,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -16,22 +18,37 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   constructor(
     private authService: AuthService,
-    private formBuilder: FormBuilder
+    private router: Router,
+    private notificationsService: NotificationsService
   ) {}
 
   ngOnInit(): void {
     this.loginForm = new FormGroup({
-      username: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
-    this.onLogin();
+
+  }
+
+  public goToSignUp(){
+    this.router.navigate(['/signup']);
   }
 
   onLogin() {
     return this.authService
-      .signIn({ username: 'user', password: 'pass' })
+      .signIn(this.loginForm.value)
       .subscribe((result) => {
-        console.log('login result',result);
+        if(result.accessToken){
+          console.log('login result',result);
+          localStorage.setItem('accessToken', result.accessToken);
+          localStorage.setItem('access', result.type);
+          localStorage.setItem('id',result.id);
+          this.notificationsService.success('Hello, ' + result.username,null,{timeOut:3000})
+          this.router.navigate(['/home'])
+        }else{
+          this.notificationsService.error('Ooops!Wrong credentials!')
+        }
+
       });
   }
 }

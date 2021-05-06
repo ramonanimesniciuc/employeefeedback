@@ -7,7 +7,7 @@ export class AuthService {
 
 
     public signIn(loginBody){
-       return this.httpService.post('api/auth/signin',this.signIn);
+       return this.httpService.post('api/auth/signin',loginBody);
     }
 
     public signUpCompany(signUpBody){

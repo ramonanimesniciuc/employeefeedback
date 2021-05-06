@@ -16,7 +16,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { CompanyModule } from './company/company.module';
-
+import { SimpleNotificationsModule } from 'angular2-notifications';
 @NgModule({
   declarations: [
     AppComponent
@@ -37,7 +37,8 @@ import { CompanyModule } from './company/company.module';
     SharedModule,
     HttpClientModule,
     DashboardModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

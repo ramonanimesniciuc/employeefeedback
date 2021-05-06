@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="create_template col-8">
+    <h2 class="title">Create review template</h2>
+    <h3><input [(ngModel)]="templateTitle" type="text" class="form-control" placeholder="Add a title for this template"></h3>
+    <div class="template-menu">
+      <div class="card" (click)="addTemplate(TemplateType.MULTIPLE)">
+        <img class="image" src="assets/icons/multiple-template.png">
+        Multiple answer question
+      </div>
+      <div class="card" (click)="addTemplate(TemplateType.SINGLE)">
+        <img class="image" src="assets/icons/single-template.png">
+        Single answer question
+      </div>
+      <div class="card" (click)="addTemplate(TemplateType.FREE)">
+        <img class="image" src="assets/icons/free-template.png">
+        Free answer question
+      </div>
+    </div>
+    <div class="template-editing" [ngSwitch]="currentEditingTemplate">
+   <app-question-template (onStopEditing)="onStopEditing($event)" (onQuestionAdded)="onQuestionAdded($event)" [editedQuestion]="editedQuestion" [templateType]="TemplateType.MULTIPLE" *ngSwitchCase="TemplateType.MULTIPLE"></app-question-template>
+   <app-question-template (onStopEditing)="onStopEditing($event)" (onQuestionAdded)="onQuestionAdded($event)" [editedQuestion]="editedQuestion" [templateType]="TemplateType.SINGLE" *ngSwitchCase="TemplateType.SINGLE"></app-question-template>
+   <app-question-template (onStopEditing)="onStopEditing($event)" (onQuestionAdded)="onQuestionAdded($event)" [editedQuestion]="editedQuestion" [templateType]="TemplateType.FREE" *ngSwitchCase="TemplateType.FREE"></app-question-template>
+    </div>
+    <button type="button" class="btn btn-info submit-button" [disabled]="questions.length === 0" *ngIf="!isEditOn" (click)="submitTemplate()">Submit template</button>
+  </div>
+  <div class="addedQuestions col-4" *ngIf="questions.length > 0">
+  <h3>Questions added to the review</h3>
+  <div *ngFor="let question of questions;let i=index" class="added-question">
+   <h4 class="question-added-title">{{i + 1}}.  {{question.title}}</h4>
+    <div class="question-added-answer" *ngFor="let answer of question.answer"> &#8594; {{answer.text}}</div>
+    <div class="actions">
+      <button class="btn btn-danger" (click)="removeQuestion(i)">X</button>
+      <button class="btn btn-light" (click)="editQuestion(question,i)" > Edit</button>
+    </div>
+
+  </div>
+  </div>
+</div>
+

@@ -2,7 +2,7 @@
   display: grid;
   height: 100vh;
   width: calc(100vw - 2rem);
-  grid-template-columns: 0.5fr 1fr 1fr 1fr;
+  grid-template-columns: 0.3fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 1rem 1rem;
   padding: 1rem;
@@ -15,7 +15,7 @@
   grid-area: menu;
   background-color: rgba(56, 124, 109, 0.8743872549019608);
   border-radius: 1rem;
-  
+
 }
 
 
@@ -24,7 +24,7 @@
   grid-area: content;
   background-color:   rgba(248,245,241,1);
   border-radius: 1rem;
-  
+
 }
 
 ul {
@@ -36,6 +36,11 @@ ul {
       padding: 1em;
       margin: 1rem 0px;
       text-align: center;
+      cursor:pointer;
+  }
+  li:hover{
+    opacity:0.8;
+    background-color: #1b312e;
   }
 }
 

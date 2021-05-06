@@ -8,8 +8,9 @@ const userSchema = new mongoose.Schema({
   birthdate: Date,
   role: String,
   departmentId: Number,
-  managerId:Number,
-  phone:String
+  managerId:String,
+  phone:String,
+  enrollment: Date
 });
 
 userSchema.methods.generateHash = function(password) {

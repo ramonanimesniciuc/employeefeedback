@@ -1,1 +1,45 @@
-<p>add-manager works!</p>
+<div class="add_manager">
+    <h2 class="title">Add manager</h2>
+    <form [formGroup]="addManagerForm">
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Name</label>
+            <input formControlName="name" type="type" class="form-control" id="exampleFormControlInput1" placeholder="Manager name">
+          </div>
+        <div class="form-group">
+          <label for="exampleFormControlInput1">Email address</label>
+          <input formControlName="email" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Department</label>
+            <input formControlName="department" type="type" class="form-control" id="exampleFormControlInput1" placeholder="Sales,IT,Security..">
+          </div>
+        <div class="form-group">
+          <label for="exampleFormControlSelect1">What access should the manager have?</label>
+          <div class="form-check">
+            <input  (change)="onSelectionChanged($event.target.value)" class="form-check-input" type="checkbox" value="ADD EMPLOYEES" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              ADD EMPLOYEES
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="onSelectionChanged($event.target.value)" class="form-check-input" type="checkbox" value="CREATE TEMPLATES" id="flexCheckChecked" >
+            <label class="form-check-label" for="flexCheckChecked">
+              CREATE TEMPLATES
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="onSelectionChanged($event.target.value)" class="form-check-input" type="checkbox" value="SEE RESULTS" id="flexCheckChecked">
+            <label class="form-check-label" for="flexCheckChecked">
+              SEE RESULTS
+            </label>
+          </div>
+          <div class="form-check">
+            <input (change)="onSelectionChanged($event.target.value)" class="form-check-input" type="checkbox" value="SEE OVERALL RESULTS" id="flexCheckChecked" >
+            <label class="form-check-label" for="flexCheckChecked">
+              SEE OVERALL RESULTS
+            </label>
+          </div>
+        </div>
+      </form>
+      <button type="button" class="btn btn-success" [disabled]="!addManagerForm.valid" (click)="addManager()">Submit</button>
+</div>

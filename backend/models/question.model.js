@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const questionSchema = new mongoose.Schema({
   title: String,
-  answers:[mongoose.SchemaTypes.ObjectId]
+  answers:[String]
 });
 
 
