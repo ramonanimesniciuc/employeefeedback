@@ -33,15 +33,25 @@ form{
 }
 
 .card-deck{
+  margin:0 auto;
+  flex-flow:unset;
   app-card{
-    padding: 1rem;
+    text-align: center;
   }
 }
 
 .signup{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
+  padding:10rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    position: absolute;
+    height: 100vh;
 }
 
+.title{
+  letter-spacing: 1rem;
+  text-align: center;
+  padding:3rem;
+  font-weight: bold;
+}
